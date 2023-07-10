@@ -1,0 +1,21 @@
+
+<form id="new-form" action="/salons" method="POST">
+    <label>Name:</label>
+    <input type="text" name="Name">
+    <label>Date:</label>
+    <input type="date" name="Date">
+    <label>AppointmentType</label>
+    <select name="AppointmentType">
+      <option value="Haircut">Haircut</option>
+      <option value="Hair-Color">Hair-Color</option>
+      <option value="Hair-Extentions">Hair-Extentions</option>
+      <option value="Hair-Straightening">Hair-Straightening</option>
+      <option value="Hair-Permimg">Hair-Permimg</option>
+      <option value="Styling">Styling</option>
+    </select>
+    <label>Correct Information:</label>
+    <input type="checkbox" name="CorrectInformation" checked>
+    <input type="submit" value="Add Appointment">
+  </form>
+  
+  <%- include('../partials/footer') %>

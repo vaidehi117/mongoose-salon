@@ -1,7 +1,8 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const passport = require('passport');
 
-// The root route renders our only view
+// The root route renders our only view 😀
 router.get('/', function(req, res) {
   res.redirect('/salons');
 });
