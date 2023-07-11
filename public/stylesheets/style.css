@@ -8,6 +8,16 @@ body {
 a {
   color: #0012af;
 }
+.login {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
 
 /* .brand-logo {
   margin-left: 15px;
@@ -27,5 +37,5 @@ a {
 }
 
 .collection-item form {
-  margin-top: -5px;
-} */
+  margin-top: -5px; */
+/* } */
