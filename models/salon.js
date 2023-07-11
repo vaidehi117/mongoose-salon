@@ -18,7 +18,7 @@ const salonSchema = new mongoose.Schema({
     AppointmentType: {
         type: String,
         enum: ['Haircut', 'Hair-Color','Hair-Extentions', 'Hair-Straightening', 'Hair-Permimg','Styling'],
-        required: trusted
+        required: true
     },
     CorrectInformation: {
         type: Boolean, 

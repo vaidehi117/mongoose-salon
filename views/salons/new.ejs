@@ -1,10 +1,14 @@
+<%- include('../partials/header') %>
 
-<form id="new-form" action="/salons" method="POST">
-    <label>Name:</label>
+<h2>Enter New Appointment</h2>
+<form action="/salons" method="POST">
+    <label>Name:
     <input type="text" name="Name">
-    <label>Date:</label>
+    </label><br>
+    <label>Date:
     <input type="date" name="Date">
-    <label>AppointmentType</label>
+    </label><br>
+    <label>AppointmentType:
     <select name="AppointmentType">
       <option value="Haircut">Haircut</option>
       <option value="Hair-Color">Hair-Color</option>
@@ -13,9 +17,12 @@
       <option value="Hair-Permimg">Hair-Permimg</option>
       <option value="Styling">Styling</option>
     </select>
-    <label>Correct Information:</label>
+    </label><br>
+    <label>Correct Information:
     <input type="checkbox" name="CorrectInformation" checked>
+    </label><br>
     <input type="submit" value="Add Appointment">
   </form>
-  
+  <p><%= errorMsg %></p>
+
   <%- include('../partials/footer') %>

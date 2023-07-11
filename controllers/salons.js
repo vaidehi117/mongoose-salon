@@ -1,7 +1,9 @@
 const SalonModel = require("../models/salon");
 
 module.exports = {
-    index
+    index,
+    new: newAppointment,
+    create
 };
 
 async function index(req, res){
@@ -9,3 +11,27 @@ async function index(req, res){
     console.log(salons);
     res.render("salons/index", { title: "All Appointment", salons: salons})
 }
+
+function newAppointment(req, res) {
+    // We'll want to be able to render an
+    // errorMsg if the create action fails
+    res.render("salons/new", { title: "Add Appointment", errorMsg: "" });
+  }
+
+  async function create(req, res) {
+    //convert correct information checkbox of nothing or "on" to boolean
+    req.body.CorrectInformation = !!req.body.CorrectInformation;
+
+    //Remove empty properties so that defaults will be applied 
+    for (let key in req.body) {
+        if(req.body[key] === "")delete req.body[key];
+    }
+    try{
+        const salonFromTheDatabase = await SalonModel.create(req.body);
+        console.log(salonFromTheDatabase);
+        res.redirect(`/salons/${salonFromTheDatabase._id}`);
+    }catch (err){
+        console.log(err);
+        res.render("salons/new", {errorMsg: err.message});
+    }
+  }

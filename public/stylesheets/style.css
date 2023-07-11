@@ -1,4 +1,15 @@
-.brand-logo {
+body {
+  padding: 50px;
+  font: 2.5vmin "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  background-color: rgb(224, 172, 231);
+}
+
+a {
+  color: #0012af;
+}
+
+/* .brand-logo {
   margin-left: 15px;
 }
 
@@ -17,4 +28,4 @@
 
 .collection-item form {
   margin-top: -5px;
-}
+} */

@@ -1,3 +1,4 @@
+const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -16,6 +17,7 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
+const salonsRouter = require('./routes/salons');
 
 // create the Express app
 const app = express();
@@ -46,12 +48,14 @@ app.use(passport.session());
 // Add this middleware BELOW passport middleware
 app.use(function (req, res, next) {
   res.locals.user = req.user; // assinging a property to res.locals, makes that said property (user) availiable in every
-  // single ejs view
   next();
 });
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
+app.use('/salons', salonsRouter);
 
 
 // invalid request, send 404 page
