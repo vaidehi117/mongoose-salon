@@ -2,14 +2,25 @@ const SalonModel = require("../models/salon");
 
 module.exports = {
     index,
+    show,
     new: newAppointment,
     create
 };
 
 async function index(req, res){
-    const salons = await SalonModel.find({});
-    console.log(salons);
-    res.render("salons/index", { title: "All Appointment", salons: salons})
+    try {
+        const salons = await SalonModel.find({});
+        // console.log(salons);
+        res.render("salons/index", {salons})
+    } catch(err) {
+        console.log(err);
+        res.render(err);
+    }
+}
+
+async function show(req, res) {
+    const salon = await SalonModel.findById(req.params.id);
+    res.render('salons/show', {title: 'Appointment Details', salon});
 }
 
 function newAppointment(req, res) {
@@ -29,7 +40,7 @@ function newAppointment(req, res) {
     try{
         const salonFromTheDatabase = await SalonModel.create(req.body);
         console.log(salonFromTheDatabase);
-        res.redirect(`/salons/${salonFromTheDatabase._id}`);
+        res.redirect(`salons/${salonFromTheDatabase._id}`);
     }catch (err){
         console.log(err);
         res.render("salons/new", {errorMsg: err.message});

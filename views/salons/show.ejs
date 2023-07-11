@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+  <section id="show-page">
+    <div>Name: <%= salon.Name %></div>
+    <div>Date: <%= salon.Date %></div>
+    <div>Appointment Type: <%= salon.AppointmentType %></div>
+    <div>Correct Information: <%= salon.CorrectInformation ? 'Yes' : 'Nope' %></div>
+
+  </section>
+
+  <%- include('../partials/footer') %>

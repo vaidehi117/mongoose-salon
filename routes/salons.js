@@ -7,6 +7,8 @@ const salonsCtrl = require('../controllers/salons');
 router.get('/', salonsCtrl.index);
 //GET /appointments/new
 router.get('/new', salonsCtrl.new);
+// GET /salons/:id (show functionality) MUST be below new route
+router.get('/:id', salonsCtrl.show);
 //POST /salons
 router.post('/', salonsCtrl.create);
 
