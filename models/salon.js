@@ -1,9 +1,43 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+//One salon has many reviews
+//A review belogs to a salon
+//is the relationship for the the reviews and movies
+
+//write the many (side) review Schema in the one side (in this case salon)
+
+const reviewSchema = new Schema({
+    Content: {
+        type: String,
+        required: true
+    },
+    Rating: {
+        type: Number,
+        min:1,
+        max: 5,
+        default: 5
+    },
+    user: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User', 
+        required: true
+    },
+    userName: String,
+    userAvatar: String
+}, {
+    timestamps: true
+})
+
+
+
+
+
+
 //one Appointment
 // SCHEMA Defines what structure/shape 
-// that the documents created from the Movie Model
+// that the documents created from the Salon Model
 // that our stored in the database should look like
 
 const salonSchema = new mongoose.Schema({
