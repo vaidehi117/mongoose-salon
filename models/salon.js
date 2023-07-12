@@ -57,7 +57,8 @@ const salonSchema = new mongoose.Schema({
     CorrectInformation: {
         type: Boolean, 
         default: true
-    }
+    },
+    reviews: [reviewSchema]
 }, {
     timestamps: true
 });

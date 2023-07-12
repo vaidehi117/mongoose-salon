@@ -18,6 +18,7 @@ require('./config/passport');
 
 const indexRouter = require('./routes/index');
 const salonsRouter = require('./routes/salons');
+const reviewsRouter = require('./routes/reviews');
 
 // create the Express app
 const app = express();
@@ -56,6 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
 app.use('/salons', salonsRouter);
+app.use('/', reviewsRouter);
 
 
 // invalid request, send 404 page
