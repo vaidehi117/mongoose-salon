@@ -19,7 +19,7 @@ passport.use(new GoogleStrategy(
 
       //first time logging in create the user
       userDocument = await UserModel.create({
-        name: profile.displayName,
+        Name: profile.displayName,
         googleId: profile.id,
         email: profile.emails[0].value,
         avatar: profile.photos[0].value,

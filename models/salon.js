@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 //One salon has many reviews
 //A review belogs to a salon
-//is the relationship for the the reviews and movies
+//is the relationship for the the reviews and salon
 
 //write the many (side) review Schema in the one side (in this case salon)
 

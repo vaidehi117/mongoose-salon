@@ -22,7 +22,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     const salon = await SalonModel.findById(req.params.id);
-    console.log(salon)
+    // console.log(salon)
     res.render('salons/show', { title: 'Appointment Details', salon });
 }
 
