@@ -4,13 +4,16 @@ const router = express.Router();
 const salonsCtrl = require('../controllers/salons');
 
 //Get /salons
-router.get('/', salonsCtrl.index);
+router.get('/', salonsCtrl.home);
 //GET /appointments/new
+
 router.get('/new', salonsCtrl.new);
+// Get Allapoinment page
+router.get('/appointments', salonsCtrl.appointments);
+
 // GET /salons/:id (show functionality) MUST be below new route
 router.get('/:id', salonsCtrl.show);
-//Get Allapoinment page
-// router.get('/appointments', salonsCtrl.index);
+
 
 //POST /salons
 router.post('/', salonsCtrl.create);

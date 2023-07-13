@@ -2,18 +2,34 @@ const salon = require("../models/salon");
 const SalonModel = require("../models/salon");
 
 module.exports = {
-    index,
+    // index,
     show,
     new: newAppointment,
-    // index: getAllAppoinments,
-    create
+    create,
+    home,
+    appointments
 };
 
-async function index(req, res) {
+
+async function home(req, res) {
     try {
         const salons = await SalonModel.find({});
         // console.log(salons);
-        res.render("salons/index",  { title: "All salons", salons: salons });
+        res.render("index");
+    } catch (err) {
+        console.log(err);
+        res.render(err);
+    }
+}
+
+
+
+
+async function appointments(req, res) {
+    try {
+        const salons = await SalonModel.find({});
+        console.log("Appointment got called");
+        res.render("salons/appointments",  { title: "All salons", salons: salons });
     } catch (err) {
         console.log(err);
         res.render(err);

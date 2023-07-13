@@ -3,8 +3,29 @@ const SalonModel = require('../models/salon');
 
 module.exports = {
     create,
-    delete: deleteReview
+    delete: deleteReview,
+    update: updateReview
 };
+
+async function updateReview(req, res,) {
+    try{
+        const salonDoc = await SalonModel.findOne({'reviews._id': req.params.id, 'reviews.user': req.user._id});
+        //Find the review subdoc using the id method on mongoose arrays
+        const reviewSubdoc = salonDoc.reviews.id(req.params.id);
+        //Make user the review was created by the logged in user 
+        if(!reviewSubdoc.userName.equals(req.user._id)) 
+             res.redirect(`/salons/${salon.id}`);
+        //update the text of the review 
+        reviewSubdoc.text = req.body.text;
+        //save the updated book 
+        salonDoc.save(function(err) {
+            //redirect back to the salon's show page 
+            res.redirect(`/salons/${salon._id}`);
+        });
+    } catch(err){
+        res.send(err)
+    }
+}
 
 async function deleteReview(req, res, next) {
 
@@ -22,10 +43,10 @@ async function deleteReview(req, res, next) {
         await salonDoc.save();
     
         //tells the client to make a request to this route 
-        res.redirect(`/salons/${req.params.id}`);
+        res.redirect(`/salons/${salonDoc._id}`);
 
     }catch(err){
-        next(err)
+        res.send(err)
     }
 }
 
