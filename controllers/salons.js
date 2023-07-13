@@ -5,6 +5,7 @@ module.exports = {
     // index,
     show,
     new: newAppointment,
+    updateAppointment,
     create,
     home,
     appointments
@@ -48,9 +49,11 @@ function newAppointment(req, res) {
     res.render("salons/new", { title: "Add Appointment", errorMsg: "" });
 }
 
-// function getAllAppoinments(req, res) {
-//     res.render("salons/appointments", { title: "All Appointment", salons: salons  });
-// }
+function updateAppointment(req, res) {
+
+
+    res.render("salons/new", { title: "Update Appointment", errorMsg: "" })
+}
 
 async function create(req, res) {
     //convert correct information checkbox of nothing or "on" to boolean
