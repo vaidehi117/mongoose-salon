@@ -24,32 +24,12 @@ body > nav {
   align-items: center;
   padding: 0 20px 0 30px;
 }
-/* 
-nav > img {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
-} */
-
-body > main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #c44c4c;
-  padding: 20px;
-  overflow-y: scroll;
-}
-
-body > main h1:first-child {
-  margin-bottom: 50px;
-}
 
 nav > a {
   margin: 20px;
-  text-decoration: none;
+  text-decoration: wavy;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 nav > a:hover {

@@ -67,7 +67,7 @@
             <td>
               <form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
                 <!-- Value attribute is being set to the comment's current text -->
-                <input name="text" value="<%= r.Content %>">
+                <input name="Content" value="<%= r.Content %>">
                 <button type="submit">UPDATE REVIEW</button>
               </form>
             </td>

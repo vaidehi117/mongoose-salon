@@ -4,8 +4,11 @@ const SalonModel = require('../models/salon');
 module.exports = {
     create,
     delete: deleteReview,
+    // edit,
     update: updateReview
 };
+
+// async function edit(req, res,)
 
 async function updateReview(req, res,) {
     try{
