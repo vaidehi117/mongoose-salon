@@ -1,15 +1,23 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-// replace your database connection string here
-mongoose.connect(process.env.DATABASE_URL);
+// export the function that creates a database connection
+module.exports = {
+  connectDB,
+};
 
-const db = mongoose.connection;
+async function connectDB() {
+  try {
+    const conn = await mongoose.connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-// database connection event
-db.on('connected', function() {
-  console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`);
-});
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
 
-db.on('error', function(err){
-  console.log(err)
-})
+  } catch (err) {
+    console.log("err");
+    console.log(err, ' connecting to mongodb')
+    process.exit(1);
+  }
+}
+
