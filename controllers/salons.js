@@ -5,7 +5,7 @@ module.exports = {
     // index,
     show,
     new: newAppointment,
-    updateAppointment,
+    // updateAppointment,
     create,
     home,
     appointments
@@ -49,11 +49,14 @@ function newAppointment(req, res) {
     res.render("salons/new", { title: "Add Appointment", errorMsg: "" });
 }
 
-function updateAppointment(req, res) {
+// async function updateAppointment(req, res) {
+
+//     //retrive the appointmentId and update details from the request body
+//     const appointments = await SalonModel.findById({req.params._id})
 
 
-    res.render("salons/new", { title: "Update Appointment", errorMsg: "" })
-}
+//     res.render("salons/show", { title: "Update Appointment", errorMsg: "" })
+// }
 
 async function create(req, res) {
     //convert correct information checkbox of nothing or "on" to boolean
@@ -72,3 +75,16 @@ async function create(req, res) {
         res.render("salons/new", { errorMsg: err.message });
     }
 }
+
+
+
+
+{/* <br><br>
+<h2>Give Any Suggestions for Your Appointment</h2>
+
+  <form action="/salons" _method="PUT" method="POST">
+    <label>Suggestions:</label>
+    <textarea name="Content"></textarea>
+    <br>  
+    <button type="submit">Suggestions</button>
+  </form>  */}

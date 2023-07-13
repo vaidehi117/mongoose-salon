@@ -9,19 +9,23 @@ module.exports = {
 
 async function updateReview(req, res,) {
     try{
+        //Find the appointment with review 
         const salonDoc = await SalonModel.findOne({'reviews._id': req.params.id, 'reviews.user': req.user._id});
+
         //Find the review subdoc using the id method on mongoose arrays
         const reviewSubdoc = salonDoc.reviews.id(req.params.id);
+
         //Make user the review was created by the logged in user 
-        if(!reviewSubdoc.userName.equals(req.user._id)) 
-             res.redirect(`/salons/${salon.id}`);
+        if(!reviewSubdoc.reviews.user.equals(req.user.id)) return res.redirect(`/salons/${salon.id}`);
+
         //update the text of the review 
-        reviewSubdoc.text = req.body.text;
+        reviewSubdoc.Content = req.body.Content;
         //save the updated book 
-        salonDoc.save(function(err) {
-            //redirect back to the salon's show page 
-            res.redirect(`/salons/${salon._id}`);
-        });
+        salonDoc.save();
+        
+        //redirect back to the salon's show page 
+        res.redirect(`/salons/${salon._id}`);
+
     } catch(err){
         res.send(err)
     }
