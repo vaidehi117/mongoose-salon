@@ -1,12 +1,10 @@
 * {
-  box-sizing: border-box;
   font-family: Helvetica;
   color: #096f1c;
 }
 
 body {
   margin: 0;
-  height: 100vh;
   display: grid;
   grid-template-rows: 50px 1fr;
   background-color: rgb(244, 249, 171);
@@ -50,8 +48,6 @@ nav > a.active {
 #new-form *,
 #add-review-form * {
   font-size: 20px;
-  padding: 5px;
-  border-radius: 5px;
 }
 
 #new-form input[type="submit"] {
@@ -91,9 +87,9 @@ table td {
 }
 
 #show-page {
+  text-align: center;
   display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
+  
 }
 
 #show-page div:nth-child(even) {
@@ -101,7 +97,7 @@ table td {
 }
 
 #add-review-form {
-  display: grid;
+  display: block;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
   margin-bottom: 2rem;
@@ -132,5 +128,21 @@ table td {
 .review-user img {
   border-radius: 50%;
   height: 40px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.text-area-height {
+  height: 20px;
+}
+
+.div-display {
+  display: flow-root;
 }
 

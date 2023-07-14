@@ -4,30 +4,29 @@ const SalonModel = require('../models/salon');
 module.exports = {
     create,
     delete: deleteReview,
-    // edit,
     update: updateReview
-};
+};         
 
-// async function edit(req, res,)
-
-async function updateReview(req, res,) {
+async function updateReview(req, res) {
     try{
+    
         //Find the appointment with review 
         const salonDoc = await SalonModel.findOne({'reviews._id': req.params.id, 'reviews.user': req.user._id});
-
+      
         //Find the review subdoc using the id method on mongoose arrays
         const reviewSubdoc = salonDoc.reviews.id(req.params.id);
-
-        //Make user the review was created by the logged in user 
-        if(!reviewSubdoc.reviews.user.equals(req.user.id)) return res.redirect(`/salons/${salon.id}`);
+        console.log('reviewSubdoc......: ', reviewSubdoc);
+        console.log('req.body.Content......: ', req.body.Content);
 
         //update the text of the review 
         reviewSubdoc.Content = req.body.Content;
+      
         //save the updated book 
         salonDoc.save();
         
         //redirect back to the salon's show page 
-        res.redirect(`/salons/${salon._id}`);
+        res.redirect(`/salons/${salonDoc._id}`);
+        // res.redirect(`/salons/`);
 
     } catch(err){
         res.send(err)
@@ -58,10 +57,10 @@ async function deleteReview(req, res, next) {
 }
 
 async function create(req,res) {
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
-
+    
         const salonFromTheDatabase = await SalonModel.findById(req.params.id);
         //Add the logged in user property to req,body
         req.body.user = req.user._id;
@@ -73,7 +72,7 @@ async function create(req,res) {
 		// I have to tell mongodb that, so we have to save
         await salonFromTheDatabase.save();
         //Then respond to the client
-        console.log(salonFromTheDatabase);
+        // console.log(salonFromTheDatabase);
         res.redirect(`/salons/${req.params.id}`);
     }catch(err) {
         res.send(err)

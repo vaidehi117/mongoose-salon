@@ -5,9 +5,11 @@ const reviewsCtrl = require('../controllers/reviews');
 
 router.post('/salons/:id/reviews', reviewsCtrl.create);
 
+router.put('/reviews/:id', reviewsCtrl.update);
+
 router.delete('/reviews/:id', reviewsCtrl.delete);
 
-router.put('/reviews/:id', reviewsCtrl.update);
+
 
 // router.get('/salons/reviews/:id', reviewsCtrl.edit);
 
