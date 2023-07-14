@@ -112,7 +112,6 @@ table td {
   display: flex;
   justify-content: right;
   align-items: right;
-  height: 34px;
 }
 
 .login img {

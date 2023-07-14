@@ -9,9 +9,6 @@ router.get('/', salonsCtrl.home);
 //GET /appointments/new
 router.get('/new', salonsCtrl.new);
 
-//Get /appointment/new Update
-// router.put('/new', salonsCtrl.updateAppointment);
-
 // Get Allapoinment page
 router.get('/appointments', salonsCtrl.appointments);
 

@@ -9,8 +9,4 @@ router.put('/reviews/:id', reviewsCtrl.update);
 
 router.delete('/reviews/:id', reviewsCtrl.delete);
 
-
-
-// router.get('/salons/reviews/:id', reviewsCtrl.edit);
-
 module.exports = router;
