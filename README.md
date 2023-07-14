@@ -1,4 +1,4 @@
-Hair Salon Appointments
+#Hair Salon Appointments
 
 
 This Project is built using JavaScript, EJS, and CSS. It allows the user to create hair appointments. Users can see all the 
