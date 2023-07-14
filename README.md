@@ -21,5 +21,5 @@ This web application is very easy to use and efficient.
 
 # Next Steps:
 
-Implement the customer's contact number
-Users can update the appointment date and time if needed
+- Implement the customer's contact number
+- Users can update the appointment date and time if needed
