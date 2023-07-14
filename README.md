@@ -1,9 +1,9 @@
-Hair Salon Appoinments
-This Project is build using JavaScript, EJS, and CSS. It allows the user to create a hair appoinments. User can see all the 
-appointment details. User can also leave a review and rating for the salon as well as edit the reviews.
+Hair Salon Appointments
+This Project is built using JavaScript, EJS, and CSS. It allows the user to create hair appointments. Users can see all the 
+appointment details. Users can also leave a review and rating for the salon and edit the reviews.
 
 
 
 Next Steps:
-Implement coustomers contect number
-User can update the appointment date and time if needed
+Implement the customer's contact number
+Users can update the appointment date and time if needed
