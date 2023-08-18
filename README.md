@@ -18,6 +18,8 @@ This Project is build using JavaScript, EJS,Express, Node, MongoDb, Mongoose and
 appointment details. User can also leave a review and rating for the salon as well as edit the reviews.
 This web application is very easy to use and efficient.
 
+- Link to deployed app: https://smoggy-lime-battledress.cyclic.app/salons
+
 
 # Next Steps:
 - Add logo for salon
